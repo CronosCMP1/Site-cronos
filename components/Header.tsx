@@ -1,6 +1,7 @@
 
 import React, { useState } from 'react';
 import { motion, useScroll, useMotionValueEvent } from 'framer-motion';
+import Logo from './Logo';
 
 const Header: React.FC = () => {
   const { scrollY } = useScroll();
@@ -43,6 +44,11 @@ const Header: React.FC = () => {
     }
   };
 
+  const scrollToTop = (e: React.MouseEvent) => {
+    e.preventDefault();
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
   return (
     <motion.header
       variants={{
@@ -55,19 +61,32 @@ const Header: React.FC = () => {
       className="fixed top-0 left-0 right-0 z-50 flex justify-center pt-6 px-4 pointer-events-none"
     >
       <nav 
-        className={`pointer-events-auto transition-all duration-500 rounded-full border ${
+        className={`pointer-events-auto transition-all duration-500 rounded-full border flex items-center gap-6 md:gap-8 ${
           isScrolled 
-            ? 'bg-cronos-black/80 backdrop-blur-md border-white/10 shadow-2xl py-3 px-8' 
+            ? 'bg-cronos-black/80 backdrop-blur-md border-white/10 shadow-2xl py-3 px-6 md:px-8' 
             : 'bg-transparent border-transparent py-4 px-6'
         }`}
       >
-        <ul className="flex items-center gap-6 md:gap-10">
+        {/* Logo Clickable Area */}
+        <a 
+          href="#" 
+          onClick={scrollToTop} 
+          className="hover:opacity-80 hover:scale-105 transition-all duration-300"
+          aria-label="Voltar ao topo"
+        >
+          <Logo className="w-8 h-8 md:w-10 md:h-10 text-cronos-white" />
+        </a>
+
+        {/* Divider (only visible on desktop) */}
+        <div className="hidden md:block w-[1px] h-4 bg-white/20" />
+
+        <ul className="flex items-center gap-4 md:gap-8">
           {links.map((link) => (
             <li key={link.name}>
               <a 
                 href={link.href}
                 onClick={(e) => handleScrollTo(e, link.href)}
-                className="font-header uppercase text-xs md:text-sm tracking-widest text-cronos-white/70 hover:text-cronos-lime transition-colors duration-300 relative group"
+                className="font-header uppercase text-[10px] md:text-sm tracking-widest text-cronos-white/70 hover:text-cronos-lime transition-colors duration-300 relative group"
               >
                 {link.name}
                 <span className="absolute -bottom-1 left-0 w-0 h-[2px] bg-cronos-lime transition-all duration-300 group-hover:w-full" />
