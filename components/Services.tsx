@@ -63,11 +63,13 @@ const Services: React.FC = () => {
               transition={{ delay: index * 0.1 }}
               className="group relative h-80 md:h-96 w-full overflow-hidden bg-cronos-charcoal border border-cronos-gray hover:border-cronos-orange/50 transition-colors duration-500 interactive"
             >
-              {/* Image Background (Hidden initially, reveals on hover) */}
+              {/* Image Background (Visible by default) */}
               <div 
-                className="absolute inset-0 bg-cover bg-center opacity-0 group-hover:opacity-40 transition-opacity duration-700 grayscale group-hover:grayscale-0 scale-110 group-hover:scale-100 transform"
+                className="absolute inset-0 bg-cover bg-center opacity-50 group-hover:opacity-70 transition-opacity duration-700 scale-110 group-hover:scale-100 transform"
                 style={{ backgroundImage: `url(${service.image})` }}
               />
+              {/* Gradient Overlay for Text Readability */}
+              <div className="absolute inset-0 bg-gradient-to-t from-cronos-black/90 via-cronos-black/50 to-cronos-black/20" />
               
               <div className="absolute inset-0 p-8 flex flex-col justify-between z-10">
                 <div className="flex justify-between items-start">
@@ -86,7 +88,7 @@ const Services: React.FC = () => {
                   <h3 className="text-2xl font-header uppercase tracking-wide text-cronos-white mb-2 group-hover:translate-x-2 transition-transform duration-300">
                     {service.title}
                   </h3>
-                  <p className="font-sans text-cronos-white/60 group-hover:text-cronos-white transition-colors duration-300 max-w-sm">
+                  <p className="font-sans text-cronos-white/80 group-hover:text-cronos-white transition-colors duration-300 max-w-sm drop-shadow-md">
                     {service.description}
                   </p>
                 </div>
