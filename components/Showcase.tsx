@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { motion } from 'framer-motion';
 import { AreaChart, Area, XAxis, Tooltip, ResponsiveContainer, CartesianGrid } from 'recharts';
@@ -14,7 +15,7 @@ const data = [
 
 const Showcase: React.FC = () => {
   return (
-    <section className="py-32 bg-cronos-black border-t border-cronos-gray/20 relative overflow-hidden">
+    <section id="showcase" className="py-16 md:py-32 bg-cronos-black border-t border-cronos-gray/20 relative overflow-hidden">
       {/* Background Elements */}
       <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-cronos-lime/5 rounded-full blur-[120px] pointer-events-none" />
 
@@ -60,7 +61,7 @@ const Showcase: React.FC = () => {
                 initial={{ opacity: 0, scale: 0.95 }}
                 whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true }}
-                className="bg-cronos-charcoal/40 backdrop-blur-sm p-8 border border-white/5 rounded-xl h-[450px] flex flex-col relative group"
+                className="bg-cronos-charcoal/40 backdrop-blur-sm p-8 border border-white/5 rounded-xl w-full flex flex-col relative group"
             >   
                 {/* Decorative Grid Lines */}
                 <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.02)_1px,transparent_1px)] bg-[size:40px_40px] pointer-events-none" />
@@ -72,7 +73,8 @@ const Showcase: React.FC = () => {
                     </div>
                 </div>
 
-                <div className="flex-1 w-full min-h-0 relative z-10">
+                {/* Explicit height container to prevent Recharts 'width(-1)' error */}
+                <div className="w-full h-[300px] md:h-[350px] relative z-10">
                     <ResponsiveContainer width="100%" height="100%">
                         <AreaChart data={data}>
                             <defs>
