@@ -1,8 +1,8 @@
 
 import React, { useEffect, useRef } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
-import { ArrowDown, Lock, CheckCircle2 } from 'lucide-react';
-import CTAButton from './CTAButton';
+import { ArrowDown, Lock } from 'lucide-react';
+import ContactForm from './ContactForm';
 
 interface Particle {
   x: number;
@@ -16,8 +16,7 @@ interface Particle {
 const Hero: React.FC = () => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const { scrollY } = useScroll();
-  
-  // Creates a zoom effect from scale 1 to 1.2 as user scrolls down 800px
+
   const scale = useTransform(scrollY, [0, 800], [1, 1.2]);
   const opacity = useTransform(scrollY, [0, 600], [1, 0.5]);
 
@@ -32,17 +31,15 @@ const Hero: React.FC = () => {
     canvas.width = width;
     canvas.height = height;
 
-    // Ambient background particles
     const particles: Particle[] = [];
-    const particleCount = 40; // Reduced for cleaner look with new layout
+    const particleCount = 40;
 
-    // Initialize ambient particles
     for (let i = 0; i < particleCount; i++) {
       particles.push({
         x: Math.random() * width,
         y: Math.random() * height,
         vx: (Math.random() - 0.5) * 0.3,
-        vy: (Math.random() - 1) * 0.3 - 0.1, // Upward drift
+        vy: (Math.random() - 1) * 0.3 - 0.1,
         size: Math.random() * 2 + 0.5,
         alpha: Math.random() * 0.5 + 0.1,
       });
@@ -50,13 +47,11 @@ const Hero: React.FC = () => {
 
     const animate = () => {
       ctx.clearRect(0, 0, width, height);
-      
-      // Draw ambient particles
+
       particles.forEach((p) => {
         p.x += p.vx;
         p.y += p.vy;
-        
-        // Reset if out of bounds
+
         if (p.y < -10) {
           p.y = height + 10;
           p.x = Math.random() * width;
@@ -64,7 +59,7 @@ const Hero: React.FC = () => {
 
         ctx.beginPath();
         ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
-        ctx.fillStyle = `rgba(255, 69, 0, ${p.alpha})`; 
+        ctx.fillStyle = `rgba(255, 69, 0, ${p.alpha})`;
         ctx.fill();
         ctx.shadowBlur = 10;
         ctx.shadowColor = "rgba(255, 69, 0, 0.5)";
@@ -90,12 +85,10 @@ const Hero: React.FC = () => {
 
   return (
     <section className="relative min-h-screen w-full flex items-center justify-center overflow-hidden bg-cronos-black pt-20 pb-10">
-      {/* Background Container with Zoom Effect */}
-      <motion.div 
-        style={{ scale, opacity }} 
+      <motion.div
+        style={{ scale, opacity }}
         className="absolute inset-0 w-full h-full z-0 origin-center"
       >
-        {/* Background Video - Burger Grilling (Subtle Texture) */}
         <video
           autoPlay
           loop
@@ -108,17 +101,14 @@ const Hero: React.FC = () => {
 
         <canvas ref={canvasRef} className="absolute inset-0 opacity-60" />
       </motion.div>
-      
-      {/* Vignette Overlay / Gradient to make text readable */}
+
       <div className="absolute inset-0 bg-gradient-to-r from-cronos-black via-cronos-black/90 to-cronos-black/40 z-10" />
       <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-cronos-black z-10" />
 
-      {/* Main Content Grid */}
       <div className="relative z-20 max-w-7xl mx-auto px-4 md:px-8 w-full h-full flex flex-col justify-center">
-        
+
         <div className="flex flex-col items-center text-center mt-8 md:mt-0">
-          
-            {/* 1. Eyebrow */}
+
             <motion.div
               initial={{ opacity: 0, x: -20 }}
               animate={{ opacity: 1, x: 0 }}
@@ -131,8 +121,7 @@ const Hero: React.FC = () => {
               </span>
             </motion.div>
 
-            {/* 2. Headline */}
-            <motion.h1 
+            <motion.h1
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.2 }}
@@ -142,7 +131,6 @@ const Hero: React.FC = () => {
               Livre-se das taxas dos Apps e dobre seu <span className="text-cronos-lime inline-block transform hover:scale-105 transition-transform duration-300">LUCRO</span>.
             </motion.h1>
 
-            {/* 3. Subheadline */}
             <motion.p
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
@@ -152,25 +140,20 @@ const Hero: React.FC = () => {
               O método validado para criar seu canal próprio de vendas, fidelizar clientes e ter previsibilidade de caixa, sem depender das taxas abusivas do iFood.
             </motion.p>
 
-            {/* 4. CTA & Security */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.6 }}
-              className="flex flex-col items-center gap-3 w-full sm:w-auto"
+              className="flex flex-col items-center gap-3 w-full max-w-sm mx-auto"
             >
-              <CTAButton 
-                text="QUERO RECUPERAR MINHA MARGEM DE LUCRO"
-                className="w-full sm:w-auto text-sm md:text-base py-5 px-8 shadow-[0_0_20px_rgba(50,205,50,0.3)] hover:shadow-[0_0_30px_rgba(50,205,50,0.5)]"
-              />
+              <ContactForm />
               <div className="flex items-center gap-2 text-cronos-white/50 text-xs font-sans">
                 <Lock size={12} />
                 <span>Acesso imediato à estratégia</span>
               </div>
             </motion.div>
 
-            {/* 6. Social Proof (Bottom of Fold) */}
-            <motion.div 
+            <motion.div
                initial={{ opacity: 0 }}
                animate={{ opacity: 1 }}
                transition={{ delay: 1 }}
@@ -194,9 +177,8 @@ const Hero: React.FC = () => {
             </motion.div>
         </div>
       </div>
-      
-      {/* Scroll Indicator */}
-      <motion.div 
+
+      <motion.div
         className="absolute bottom-6 left-1/2 -translate-x-1/2 z-20"
         animate={{ y: [0, 10, 0] }}
         transition={{ repeat: Infinity, duration: 2 }}
