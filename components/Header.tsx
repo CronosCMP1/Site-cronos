@@ -2,11 +2,13 @@
 import React, { useState } from 'react';
 import { motion, useScroll, useMotionValueEvent } from 'framer-motion';
 import Logo from './Logo';
+import { useModal } from '../context/ModalContext';
 
 const Header: React.FC = () => {
   const { scrollY } = useScroll();
   const [hidden, setHidden] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
+  const { openModal } = useModal();
 
   useMotionValueEvent(scrollY, "change", (latest) => {
     const previous = scrollY.getPrevious() || 0;
@@ -55,7 +57,7 @@ const Header: React.FC = () => {
       className="fixed top-0 left-0 right-0 z-50 flex justify-center pt-6 px-4 pointer-events-none"
     >
       <nav 
-        className={`pointer-events-auto transition-all duration-500 rounded-full border flex items-center gap-6 md:gap-8 ${
+        className={`pointer-events-auto transition-all duration-500 rounded-full border flex items-center gap-4 md:gap-8 ${
           isScrolled 
             ? 'bg-cronos-black/80 backdrop-blur-md border-black/10 shadow-2xl py-3 px-6 md:px-8' 
             : 'bg-transparent border-transparent py-4 px-6'
@@ -86,6 +88,14 @@ const Header: React.FC = () => {
             </li>
           ))}
         </ul>
+
+        <button
+          type="button"
+          onClick={openModal}
+          className="font-header uppercase text-[10px] md:text-sm tracking-widest px-3 md:px-5 py-2 rounded-full bg-cronos-lime text-white hover:opacity-90 transition-opacity duration-300 interactive whitespace-nowrap"
+        >
+          Contrate
+        </button>
       </nav>
     </motion.header>
   );
