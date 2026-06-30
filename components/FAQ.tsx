@@ -63,7 +63,6 @@ const FAQ: React.FC = () => {
 
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-start">
           
-          {/* FAQ List */}
           <div className="lg:col-span-2 space-y-4">
             {faqs.map((faq, index) => (
               <motion.div
@@ -72,11 +71,11 @@ const FAQ: React.FC = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.05 }}
-                className="border border-white/5 bg-[#0a0a0a] rounded-sm overflow-hidden"
+                className="border border-black/10 bg-cronos-charcoal rounded-sm overflow-hidden"
               >
                 <button
                   onClick={() => toggleFAQ(index)}
-                  className="w-full flex items-center justify-between p-6 text-left hover:bg-white/5 transition-colors duration-300 interactive"
+                  className="w-full flex items-center justify-between p-6 text-left hover:bg-black/5 transition-colors duration-300 interactive"
                 >
                   <span className={`font-sans font-semibold text-lg ${openIndex === index ? 'text-cronos-orange' : 'text-cronos-white/80'}`}>
                     {faq.question}
@@ -98,7 +97,7 @@ const FAQ: React.FC = () => {
                       transition={{ duration: 0.3, ease: "easeInOut" }}
                     >
                       <div className="px-6 pb-6 pt-0">
-                        <p className="text-cronos-white/60 font-sans leading-relaxed border-t border-white/5 pt-4">
+                        <p className="text-cronos-white/60 font-sans leading-relaxed border-t border-black/10 pt-4">
                           {faq.answer}
                         </p>
                       </div>
@@ -109,19 +108,17 @@ const FAQ: React.FC = () => {
             ))}
           </div>
 
-          {/* Support Card */}
           <div className="lg:col-span-1 lg:sticky lg:top-24">
-            <div className="bg-[#0a0a0a] border border-white/10 p-8 rounded-lg text-center relative overflow-hidden">
-               {/* Decorative glow */}
+            <div className="bg-cronos-charcoal border border-black/10 p-8 rounded-lg text-center relative overflow-hidden">
                <div className="absolute top-0 right-0 w-32 h-32 bg-cronos-lime/5 blur-[50px] rounded-full pointer-events-none" />
 
                <div className="mb-6 flex justify-center">
-                 <div className="p-4 rounded-full bg-transparent border-2 border-cronos-lime text-cronos-lime shadow-[0_0_15px_rgba(50,205,50,0.3)]">
+                 <div className="p-4 rounded-full bg-transparent border-2 border-cronos-lime text-cronos-lime shadow-[0_0_15px_rgba(233,18,114,0.25)]">
                     <MessageCircle size={40} />
                  </div>
                </div>
 
-               <h3 className="text-2xl font-header text-white mb-2 uppercase tracking-wide">
+               <h3 className="text-2xl font-header text-cronos-white mb-2 uppercase tracking-wide">
                  Ainda tem dúvidas?
                </h3>
                <p className="text-cronos-white/50 font-sans mb-8">
@@ -132,7 +129,7 @@ const FAQ: React.FC = () => {
                  href="https://wa.me/5561985928791" 
                  target="_blank" 
                  rel="noopener noreferrer"
-                 className="block w-full py-4 bg-cronos-lime text-cronos-black font-bold uppercase tracking-widest hover:bg-white transition-colors duration-300 interactive rounded-md"
+                 className="block w-full py-4 bg-cronos-lime text-white font-bold uppercase tracking-widest hover:opacity-90 transition-opacity duration-300 interactive rounded-md"
                >
                  Falar com o Suporte
                </a>
