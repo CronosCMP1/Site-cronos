@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Loader2, CheckCircle2, UserCircle2, PhoneCall } from 'lucide-react';
+import { Loader2, CheckCircle2 } from 'lucide-react';
 
 type Status = 'idle' | 'loading' | 'success' | 'error';
 
@@ -69,7 +69,7 @@ const ContactForm: React.FC<ContactFormProps> = ({ className = '', variant = 'mo
   };
 
   const inputClass =
-    'w-full bg-cronos-black/60 border border-cronos-white/20 rounded-md px-4 py-3 text-cronos-white placeholder:text-cronos-white/40 font-sans focus:outline-none focus:border-cronos-lime transition-colors interactive';
+    'w-full bg-cronos-black/60 border border-cronos-white/20 rounded-md px-4 py-3 text-sm text-cronos-white placeholder:text-cronos-white/40 font-sans focus:outline-none focus:border-cronos-lime transition-colors interactive';
 
   const SuccessMessage = (
     <div className="flex flex-col items-center text-center py-4">
@@ -110,7 +110,7 @@ const ContactForm: React.FC<ContactFormProps> = ({ className = '', variant = 'mo
     if (status === 'success') {
       return (
         <div
-          className={`w-full rounded-2xl border border-cronos-white/10 bg-cronos-black/80 backdrop-blur-sm p-8 md:p-10 ${className}`}
+          className={`w-full rounded-2xl border border-cronos-white/10 bg-cronos-black/80 backdrop-blur-sm p-6 md:p-8 ${className}`}
         >
           {SuccessMessage}
         </div>
@@ -119,59 +119,13 @@ const ContactForm: React.FC<ContactFormProps> = ({ className = '', variant = 'mo
 
     return (
       <div
-        className={`w-full rounded-2xl border border-cronos-white/10 bg-cronos-black/80 backdrop-blur-sm p-6 md:p-10 grid grid-cols-1 md:grid-cols-2 gap-8 text-left ${className}`}
+        className={`w-full rounded-2xl border border-cronos-white/10 bg-cronos-black/80 backdrop-blur-sm p-6 md:p-8 ${className}`}
       >
-        {/* Left column: title + steps */}
-        <div className="flex flex-col justify-center">
-          <h3 className="font-header text-2xl md:text-3xl uppercase text-cronos-white leading-tight mb-6">
-            Preencha para receber contato do nosso especialista
-          </h3>
+        <h3 className="font-header text-lg md:text-xl text-cronos-white leading-snug mb-5">
+          Preencha para receber contato do nosso especialista
+        </h3>
 
-          <div className="flex flex-col gap-6">
-            <div>
-              <div className="flex items-center gap-2 mb-2">
-                <div className="w-6 h-[2px] bg-cronos-orange" />
-                <span className="text-cronos-orange text-xs font-bold uppercase tracking-widest font-sans">
-                  Passo 1
-                </span>
-              </div>
-              <div className="flex gap-3">
-                <div className="shrink-0 w-9 h-9 rounded-md bg-cronos-lime/15 flex items-center justify-center">
-                  <UserCircle2 className="text-cronos-lime" size={20} />
-                </div>
-                <div>
-                  <p className="text-cronos-white font-bold font-sans mb-1">Complete o formulário</p>
-                  <p className="text-cronos-white/60 text-sm font-sans leading-relaxed">
-                    Todos os dados aqui preenchidos são para apenas contato direto, suas informações estão seguras.
-                  </p>
-                </div>
-              </div>
-            </div>
-
-            <div>
-              <div className="flex items-center gap-2 mb-2">
-                <div className="w-6 h-[2px] bg-cronos-orange" />
-                <span className="text-cronos-orange text-xs font-bold uppercase tracking-widest font-sans">
-                  Passo 2
-                </span>
-              </div>
-              <div className="flex gap-3">
-                <div className="shrink-0 w-9 h-9 rounded-md bg-cronos-lime/15 flex items-center justify-center">
-                  <PhoneCall className="text-cronos-lime" size={20} />
-                </div>
-                <div>
-                  <p className="text-cronos-white font-bold font-sans mb-1">Receba uma mensagem personalizada</p>
-                  <p className="text-cronos-white/60 text-sm font-sans leading-relaxed">
-                    Em até 1 hora você receberá uma mensagem de nosso especialista, fique de olho!
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        {/* Right column: form */}
-        <form onSubmit={handleSubmit} className="flex flex-col gap-3 justify-center">
+        <form onSubmit={handleSubmit} className="flex flex-col gap-3">
           {honeypot}
           <input
             type="text"
@@ -248,7 +202,7 @@ const ContactForm: React.FC<ContactFormProps> = ({ className = '', variant = 'mo
           <button
             type="submit"
             disabled={status === 'loading'}
-            className="mt-2 flex items-center justify-center gap-2 px-8 py-4 border border-cronos-lime bg-cronos-lime text-cronos-black uppercase font-header tracking-widest hover:bg-transparent hover:text-cronos-lime transition-all duration-300 interactive disabled:opacity-60"
+            className="mt-2 flex items-center justify-center gap-2 px-8 py-3.5 border border-cronos-lime bg-cronos-lime text-cronos-black uppercase font-header tracking-widest text-sm hover:bg-transparent hover:text-cronos-lime transition-all duration-300 interactive disabled:opacity-60"
           >
             {status === 'loading' && <Loader2 className="animate-spin" size={18} />}
             {status === 'loading' ? 'Enviando...' : 'Receber mais informações'}
