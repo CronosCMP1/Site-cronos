@@ -2,10 +2,8 @@ import React from 'react';
 import Header from './components/Header';
 import Hero from './components/Hero';
 import Marquee from './components/Marquee';
-import PainPoints from './components/PainPoints';
 import ClientLogos from './components/ClientLogos';
 import Methodology from './components/Methodology';
-import Services from './components/Services';
 import Showcase from './components/Showcase';
 import FAQ from './components/FAQ';
 import Footer from './components/Footer';
@@ -21,10 +19,8 @@ const App: React.FC = () => {
           <Hero />
           <Marquee />
           <div className="relative z-10 bg-cronos-black">
-            <PainPoints />
             <ClientLogos />
             <Methodology />
-            <Services />
             <Showcase />
             <FAQ />
           </div>
