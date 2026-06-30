@@ -43,9 +43,9 @@ const ClientLogos: React.FC = () => {
                {brands.map((brand, index) => (
                 <div
                   key={`${groupIndex}-${index}`}
-                  className="flex items-center justify-center opacity-60 hover:opacity-100 transition-all duration-300 group cursor-default grayscale hover:grayscale-0 scale-90 hover:scale-110"
+                  className="flex items-center justify-center opacity-90 hover:opacity-100 transition-all duration-300 group cursor-default scale-90 hover:scale-110"
                 >
-                  <div className="p-4 rounded-3xl border border-black/10 group-hover:border-cronos-lime/30 bg-black/5 group-hover:bg-cronos-lime/5 transition-colors shadow-sm min-w-[6rem] min-h-[6rem] flex items-center justify-center">
+                  <div className="p-4 rounded-3xl border border-cronos-lime bg-cronos-lime transition-colors shadow-sm min-w-[6rem] min-h-[6rem] flex items-center justify-center">
                     <img
                       src={brand.image}
                       alt="Logo de cliente Cronos"
