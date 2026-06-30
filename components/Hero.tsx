@@ -2,6 +2,7 @@ import React, { useEffect, useRef } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { ArrowDown } from 'lucide-react';
 import ContactForm from './ContactForm';
+import HeroMarquee from './HeroMarquee';
 
 interface Particle {
   x: number;
@@ -101,8 +102,10 @@ const Hero: React.FC = () => {
         <canvas ref={canvasRef} className="absolute inset-0 opacity-60" />
       </motion.div>
 
-      <div className="absolute inset-0 bg-gradient-to-r from-cronos-black via-cronos-black/90 to-cronos-black/40 z-10" />
+            <div className="absolute inset-0 bg-gradient-to-r from-cronos-black via-cronos-black/90 to-cronos-black/40 z-10" />
       <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-cronos-black z-10" />
+
+      <HeroMarquee />
 
       <div className="relative z-20 max-w-6xl mx-auto px-4 md:px-8 w-full">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-14 items-center">
