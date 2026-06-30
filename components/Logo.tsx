@@ -10,7 +10,7 @@ const Logo: React.FC<LogoProps> = ({ className = "w-24" }) => {
   // SUBSTITUA ESTA URL PELO LINK DIRETO DA SUA IMAGEM
   // Exemplo de link direto: https://i.ibb.co/9mdgmkcB/sua-imagem.png
   // O link atual provavelmente quebrará pois é uma página web.
-  const imageUrl = "https://ibb.co/9mdgmkcB"; 
+    const imageUrl = "/logo.png";
 
   if (hasError) {
     return (
