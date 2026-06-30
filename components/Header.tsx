@@ -11,19 +11,15 @@ const Header: React.FC = () => {
   useMotionValueEvent(scrollY, "change", (latest) => {
     const previous = scrollY.getPrevious() || 0;
 
-    // Controla o estilo de vidro (glassmorphism)
     if (latest > 50) {
       setIsScrolled(true);
     } else {
       setIsScrolled(false);
     }
 
-    // Lógica de Direção do Scroll
-    // Se estiver descendo e passou de 150px, esconde (Zoom Out)
     if (latest > previous && latest > 150) {
       setHidden(true);
     } 
-    // Se estiver subindo, mostra (Zoom In)
     else if (latest < previous) {
       setHidden(false);
     }
@@ -31,8 +27,6 @@ const Header: React.FC = () => {
 
   const links = [
     { name: 'Metodologia', href: '#metodologia' },
-    { name: 'Ecossistema', href: '#ecossistema' },
-    { name: 'Diagnóstico', href: '#diagnostico' },
     { name: 'Perguntas', href: '#faq' },
   ];
 
@@ -63,11 +57,10 @@ const Header: React.FC = () => {
       <nav 
         className={`pointer-events-auto transition-all duration-500 rounded-full border flex items-center gap-6 md:gap-8 ${
           isScrolled 
-            ? 'bg-cronos-black/80 backdrop-blur-md border-white/10 shadow-2xl py-3 px-6 md:px-8' 
+            ? 'bg-cronos-black/80 backdrop-blur-md border-black/10 shadow-2xl py-3 px-6 md:px-8' 
             : 'bg-transparent border-transparent py-4 px-6'
         }`}
       >
-        {/* Logo Clickable Area */}
         <a 
           href="#" 
           onClick={scrollToTop} 
@@ -77,8 +70,7 @@ const Header: React.FC = () => {
           <Logo className="w-8 h-8 md:w-10 md:h-10 text-cronos-white" />
         </a>
 
-        {/* Divider (only visible on desktop) */}
-        <div className="hidden md:block w-[1px] h-4 bg-white/20" />
+        <div className="hidden md:block w-[1px] h-4 bg-black/15" />
 
         <ul className="flex items-center gap-4 md:gap-8">
           {links.map((link) => (
