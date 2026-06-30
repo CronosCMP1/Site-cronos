@@ -5,8 +5,8 @@ const HeroMarquee: React.FC = () => {
   return (
     <div className="absolute inset-0 z-[15] overflow-hidden pointer-events-none opacity-10">
       <div
-        className="absolute left-1/2 top-1/2 flex items-center"
-        style={{ transform: 'translate(-50%, -50%) rotate(-45deg)', width: '200vw' }}
+        className="absolute left-1/2"
+        style={{ top: '25%', transform: 'translate(-50%, -50%) rotate(-45deg)', width: '200vw' }}
       >
         <motion.div
           className="flex whitespace-nowrap items-center"
