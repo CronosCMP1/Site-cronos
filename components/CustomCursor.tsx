@@ -34,18 +34,19 @@ const CustomCursor: React.FC = () => {
 
   return (
     <motion.div
-      className="fixed top-0 left-0 w-6 h-6 rounded-full border border-cronos-white pointer-events-none z-50 mix-blend-difference"
+      className="fixed top-0 left-0 w-6 h-6 rounded-full border-2 pointer-events-none z-50"
+      style={{ borderColor: '#E91272' }}
       animate={{
         x: mousePosition.x - 12,
         y: mousePosition.y - 12,
         scale: isHovering ? 2.5 : 1,
-        backgroundColor: isHovering ? '#FFFFFF' : 'transparent',
+        backgroundColor: isHovering ? '#E91272' : 'transparent',
       }}
       transition={{
         type: "spring",
-        stiffness: 400, // Reduced stiffness for less "jitter"
-        damping: 28,    // Increased damping for "smooth landing"
-        mass: 0.5       // Increased mass for "weight/fluidity"
+        stiffness: 400,
+        damping: 28,
+        mass: 0.5
       }}
     />
   );
