@@ -1,7 +1,6 @@
-
 import React, { useEffect, useRef } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
-import { ArrowDown, Lock } from 'lucide-react';
+import { ArrowDown } from 'lucide-react';
 import ContactForm from './ContactForm';
 
 interface Particle {
@@ -109,26 +108,13 @@ const Hero: React.FC = () => {
 
         <div className="flex flex-col items-center text-center mt-8 md:mt-0">
 
-            <motion.div
-              initial={{ opacity: 0, x: -20 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.8 }}
-              className="inline-flex items-center gap-2 mb-4"
-            >
-              <div className="w-8 h-[2px] bg-cronos-orange" />
-              <span className="font-sans text-cronos-orange font-bold uppercase tracking-widest text-xs md:text-sm">
-                Exclusivo para Donos de Delivery
-              </span>
-            </motion.div>
-
             <motion.h1
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.2 }}
               className="font-header text-5xl md:text-6xl lg:text-7xl font-bold text-cronos-white leading-[1.1] uppercase mb-6"
             >
-              Pare de deixar sua margem na mesa: <br className="hidden md:block" />
-              Livre-se das taxas dos Apps e dobre seu <span className="text-cronos-lime inline-block transform hover:scale-105 transition-transform duration-300">LUCRO</span>.
+              <span className="text-cronos-lime inline-block transform hover:scale-105 transition-transform duration-300">Para restaurantes e delivery's</span> que sofrem com instabilidade de faturamento e pouco fluxo de clientes.
             </motion.h1>
 
             <motion.p
@@ -137,10 +123,10 @@ const Hero: React.FC = () => {
               transition={{ delay: 0.4, duration: 0.8 }}
               className="text-gray-300 text-base md:text-xl font-sans max-w-xl leading-relaxed mb-8 mx-auto"
             >
-              O método validado para criar seu canal próprio de vendas, fidelizar clientes e ter previsibilidade de caixa, sem depender das taxas abusivas do iFood.
+              Potencialize seu canal de vendas próprio, fidelize seus clientes e tenha previsibilidade de caixa, sem depender de sazonalidade ou marketplaces pra vender.
             </motion.p>
 
-                        <motion.div
+            <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.6 }}
