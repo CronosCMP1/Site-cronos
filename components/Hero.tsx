@@ -140,17 +140,13 @@ const Hero: React.FC = () => {
               O método validado para criar seu canal próprio de vendas, fidelizar clientes e ter previsibilidade de caixa, sem depender das taxas abusivas do iFood.
             </motion.p>
 
-            <motion.div
+                        <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.6 }}
-              className="flex flex-col items-center gap-3 w-full max-w-sm mx-auto"
+              className="w-full max-w-4xl mx-auto"
             >
-              <ContactForm />
-              <div className="flex items-center gap-2 text-cronos-white/50 text-xs font-sans">
-                <Lock size={12} />
-                <span>Acesso imediato à estratégia</span>
-              </div>
+              <ContactForm variant="hero" />
             </motion.div>
 
             <motion.div
