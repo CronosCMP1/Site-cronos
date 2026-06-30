@@ -2,21 +2,19 @@ import React from 'react';
 import { motion } from 'framer-motion';
 
 const brands = [
-  { name: "VILA'S BURGER", image: "https://img.icons8.com/3d-fluency/94/hamburger.png", type: "Hamburgueria" },
-  { name: "SUSHIMON", image: "https://img.icons8.com/3d-fluency/94/sushi.png", type: "Japonesa" },
-  { name: "PIZZARIA NAPOLI", image: "https://img.icons8.com/3d-fluency/94/pizza.png", type: "Pizzaria" },
-  { name: "GREEN BOWL", image: "https://img.icons8.com/3d-fluency/94/broccoli.png", type: "Saudável" },
-  { name: "HOLY STEAK", image: "https://img.icons8.com/3d-fluency/94/steak-medium.png", type: "Steakhouse" },
-  { name: "CAFÉ NOIR", image: "https://img.icons8.com/3d-fluency/94/coffee-cup.png", type: "Cafeteria" },
-  { name: "GELATO PURA", image: "https://img.icons8.com/3d-fluency/94/ice-cream-cone.png", type: "Gelateria" },
-  { name: "CHEF'S TABLE", image: "https://img.icons8.com/3d-fluency/94/chef-hat.png", type: "Alta Gastronomia" },
-  { name: "WOK & ROLL", image: "https://img.icons8.com/3d-fluency/94/chinese-noodle.png", type: "Asiática" },
-  { name: "TACO LOCO", image: "https://img.icons8.com/3d-fluency/94/taco.png", type: "Mexicano" },
-  { name: "CHICKEN HOUSE", image: "https://img.icons8.com/3d-fluency/94/fried-chicken.png", type: "Frango Frito" },
-  { name: "FIT LIFE", image: "https://img.icons8.com/3d-fluency/94/avocado.png", type: "Marmitas Fit" },
-  { name: "URBAN DRINKS", image: "https://img.icons8.com/3d-fluency/94/beer-mug.png", type: "Bar & Pub" },
-  { name: "BREAD & CO", image: "https://img.icons8.com/3d-fluency/94/croissant.png", type: "Padaria" },
-  { name: "ADEGA 33", image: "https://img.icons8.com/3d-fluency/94/champagne-bottle.png", type: "Vinhos" },
+  { image: "/1.png" },
+  { image: "/2.png" },
+  { image: "/3.png" },
+  { image: "/4.png" },
+  { image: "/5.png" },
+  { image: "/6.png" },
+  { image: "/7.png" },
+  { image: "/8.png" },
+  { image: "/9.png" },
+  { image: "/10.png" },
+  { image: "/11.png" },
+  { image: "/12.png" },
+  { image: "/13.png" },
 ];
 
 const ClientLogos: React.FC = () => {
@@ -36,31 +34,26 @@ const ClientLogos: React.FC = () => {
         <div className="absolute top-0 right-0 w-32 h-full bg-gradient-to-l from-cronos-black to-transparent z-10 pointer-events-none" />
 
         <motion.div
-          className="flex gap-16 md:gap-24 items-center whitespace-nowrap pl-24"
+          className="flex gap-10 md:gap-16 items-center whitespace-nowrap pl-24"
           animate={{ x: ["0%", "-50%"] }}
           transition={{ repeat: Infinity, ease: "linear", duration: 40 }}
         >
           {[...Array(2)].map((_, groupIndex) => (
             <React.Fragment key={groupIndex}>
                {brands.map((brand, index) => (
-                <div 
-                  key={`${groupIndex}-${index}`} 
-                  className="flex flex-col items-center justify-center gap-4 opacity-50 hover:opacity-100 transition-all duration-300 group cursor-default grayscale hover:grayscale-0 scale-90 hover:scale-110"
+                <div
+                  key={`${groupIndex}-${index}`}
+                  className="flex items-center justify-center opacity-60 hover:opacity-100 transition-all duration-300 group cursor-default grayscale hover:grayscale-0 scale-90 hover:scale-110"
                 >
-                  <div className="p-4 rounded-3xl border border-black/10 group-hover:border-cronos-lime/30 bg-black/5 group-hover:bg-cronos-lime/5 transition-colors shadow-sm min-w-[5rem] min-h-[5rem] flex items-center justify-center">
-                    <img 
-                      src={brand.image} 
-                      alt={brand.name}
-                      className="w-12 h-12 md:w-16 md:h-16 object-contain drop-shadow-lg"
+                  <div className="p-4 rounded-3xl border border-black/10 group-hover:border-cronos-lime/30 bg-black/5 group-hover:bg-cronos-lime/5 transition-colors shadow-sm min-w-[6rem] min-h-[6rem] flex items-center justify-center">
+                    <img
+                      src={brand.image}
+                      alt="Logo de cliente Cronos"
+                      className="w-16 h-16 md:w-20 md:h-20 object-contain drop-shadow-lg"
                       onError={(e) => {
                         (e.target as HTMLImageElement).src = "https://img.icons8.com/3d-fluency/94/restaurant.png";
                       }}
                     />
-                  </div>
-                  <div className="text-center">
-                    <span className="block font-header text-lg md:text-xl tracking-widest text-cronos-white group-hover:text-cronos-lime transition-colors">
-                      {brand.name}
-                    </span>
                   </div>
                 </div>
               ))}
