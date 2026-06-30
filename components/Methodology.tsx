@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Target, UtensilsCrossed, Repeat, TrendingUp } from 'lucide-react';
@@ -103,4 +102,30 @@ const Methodology: React.FC = () => {
                       </h4>
                       <span className="text-xs uppercase tracking-widest text-cronos-white/40 mb-2 block">
                         {pillar.subtitle}
-                 
+                      </span>
+                      <p className="text-cronos-white/60 text-sm font-sans leading-relaxed">
+                        {pillar.description}
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+
+        {/* CTA abaixo dos pilares — aparece após os cards em mobile e desktop */}
+        <motion.div
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+          className="flex justify-center mt-16"
+        >
+          <CTAButton />
+        </motion.div>
+      </div>
+    </section>
+  );
+};
+
+export default Methodology;
