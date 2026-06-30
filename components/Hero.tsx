@@ -83,7 +83,7 @@ const Hero: React.FC = () => {
   }, []);
 
   return (
-    <section className="relative min-h-screen w-full flex items-center justify-center overflow-hidden bg-cronos-black pt-20 pb-10">
+    <section className="relative min-h-screen w-full flex items-center justify-center overflow-hidden bg-cronos-black pt-28 pb-10">
       <motion.div
         style={{ scale, opacity }}
         className="absolute inset-0 w-full h-full z-0 origin-center"
@@ -104,42 +104,35 @@ const Hero: React.FC = () => {
       <div className="absolute inset-0 bg-gradient-to-r from-cronos-black via-cronos-black/90 to-cronos-black/40 z-10" />
       <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-cronos-black z-10" />
 
-      <div className="relative z-20 max-w-7xl mx-auto px-4 md:px-8 w-full h-full flex flex-col justify-center">
+      <div className="relative z-20 max-w-6xl mx-auto px-4 md:px-8 w-full">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-14 items-center">
 
-        <div className="flex flex-col items-center text-center mt-8 md:mt-0">
+          {/* Left column: headline + subheadline + social proof */}
+          <div className="flex flex-col items-center lg:items-start text-center lg:text-left">
 
             <motion.h1
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.2 }}
-              className="font-header text-5xl md:text-6xl lg:text-7xl font-bold text-cronos-white leading-[1.1] uppercase mb-6"
+              className="font-header text-3xl sm:text-4xl md:text-5xl font-bold text-cronos-white leading-[1.2] uppercase mb-4"
             >
-              <span className="text-cronos-lime inline-block transform hover:scale-105 transition-transform duration-300">Para restaurantes e delivery's</span> que sofrem com instabilidade de faturamento e pouco fluxo de clientes.
+              <span className="text-cronos-lime inline-block">Para restaurantes e delivery's</span> que sofrem com instabilidade de faturamento e pouco fluxo de clientes.
             </motion.h1>
 
             <motion.p
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.4, duration: 0.8 }}
-              className="text-gray-300 text-base md:text-xl font-sans max-w-xl leading-relaxed mb-8 mx-auto"
+              className="text-gray-300 text-sm md:text-base font-sans max-w-md leading-relaxed mb-6"
             >
               Potencialize seu canal de vendas próprio, fidelize seus clientes e tenha previsibilidade de caixa, sem depender de sazonalidade ou marketplaces pra vender.
             </motion.p>
 
             <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.6 }}
-              className="w-full max-w-4xl mx-auto"
-            >
-              <ContactForm variant="hero" />
-            </motion.div>
-
-            <motion.div
                initial={{ opacity: 0 }}
                animate={{ opacity: 1 }}
-               transition={{ delay: 1 }}
-               className="mt-12 pt-6 border-t border-white/10 w-full max-w-md flex justify-center items-center gap-4"
+               transition={{ delay: 0.6 }}
+               className="pt-4 border-t border-white/10 w-full max-w-sm flex justify-center lg:justify-start items-center gap-4"
             >
               <div className="flex -space-x-3">
                  {[1,2,3,4].map(i => (
@@ -157,6 +150,18 @@ const Hero: React.FC = () => {
                  </p>
               </div>
             </motion.div>
+          </div>
+
+          {/* Right column: form */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.6 }}
+            className="w-full max-w-md mx-auto lg:max-w-none"
+          >
+            <ContactForm variant="hero" />
+          </motion.div>
+
         </div>
       </div>
 
