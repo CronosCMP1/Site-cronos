@@ -58,10 +58,10 @@ const Hero: React.FC = () => {
 
         ctx.beginPath();
         ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
-        ctx.fillStyle = `rgba(255, 69, 0, ${p.alpha})`;
+        ctx.fillStyle = `rgba(233, 18, 114, ${p.alpha})`;
         ctx.fill();
         ctx.shadowBlur = 10;
-        ctx.shadowColor = "rgba(255, 69, 0, 0.5)";
+        ctx.shadowColor = "rgba(233, 18, 114, 0.5)";
       });
 
       requestAnimationFrame(animate);
@@ -93,7 +93,7 @@ const Hero: React.FC = () => {
           loop
           muted
           playsInline
-          className="absolute inset-0 w-full h-full object-cover opacity-20 blur-[3px] pointer-events-none"
+          className="absolute inset-0 w-full h-full object-cover opacity-10 blur-[3px] pointer-events-none"
         >
           <source src="https://videos.pexels.com/video-files/6756617/6756617-hd_1920_1080_25fps.mp4" type="video/mp4" />
         </video>
@@ -123,7 +123,7 @@ const Hero: React.FC = () => {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.4, duration: 0.8 }}
-              className="text-gray-300 text-sm md:text-base font-sans max-w-md leading-relaxed mb-6"
+              className="text-gray-600 text-sm md:text-base font-sans max-w-md leading-relaxed mb-6"
             >
               Potencialize seu canal de vendas próprio, fidelize seus clientes e tenha previsibilidade de caixa, sem depender de sazonalidade ou marketplaces pra vender.
             </motion.p>
@@ -132,21 +132,21 @@ const Hero: React.FC = () => {
                initial={{ opacity: 0 }}
                animate={{ opacity: 1 }}
                transition={{ delay: 0.6 }}
-               className="pt-4 border-t border-white/10 w-full max-w-sm flex justify-center lg:justify-start items-center gap-4"
+               className="pt-4 border-t border-black/10 w-full max-w-sm flex justify-center lg:justify-start items-center gap-4"
             >
               <div className="flex -space-x-3">
                  {[1,2,3,4].map(i => (
-                    <div key={i} className="w-8 h-8 rounded-full border border-cronos-black bg-gray-800 overflow-hidden">
+                    <div key={i} className="w-8 h-8 rounded-full border border-cronos-black bg-gray-200 overflow-hidden">
                        <img src={`https://randomuser.me/api/portraits/men/${i*10}.jpg`} alt="User" className="w-full h-full object-cover opacity-80" />
                     </div>
                  ))}
               </div>
               <div className="flex flex-col text-left">
-                 <div className="flex items-center gap-1 text-yellow-400 text-xs">
+                 <div className="flex items-center gap-1 text-yellow-500 text-xs">
                     {[1,2,3,4,5].map(i => <span key={i}>★</span>)}
                  </div>
                  <p className="text-cronos-white/70 text-xs md:text-sm font-sans">
-                    Junte-se a <strong className="text-white">+47 donos</strong> de delivery.
+                    Junte-se a <strong className="text-cronos-white">+47 donos</strong> de delivery.
                  </p>
               </div>
             </motion.div>
