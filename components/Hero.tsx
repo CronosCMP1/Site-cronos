@@ -16,7 +16,6 @@ interface Particle {
 const Hero: React.FC = () => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const { scrollY } = useScroll();
-
   const scale = useTransform(scrollY, [0, 800], [1, 1.2]);
   const opacity = useTransform(scrollY, [0, 600], [1, 0.5]);
 
@@ -32,9 +31,7 @@ const Hero: React.FC = () => {
     canvas.height = height;
 
     const particles: Particle[] = [];
-    const particleCount = 40;
-
-    for (let i = 0; i < particleCount; i++) {
+    for (let i = 0; i < 40; i++) {
       particles.push({
         x: Math.random() * width,
         y: Math.random() * height,
@@ -47,16 +44,10 @@ const Hero: React.FC = () => {
 
     const animate = () => {
       ctx.clearRect(0, 0, width, height);
-
       particles.forEach((p) => {
         p.x += p.vx;
         p.y += p.vy;
-
-        if (p.y < -10) {
-          p.y = height + 10;
-          p.x = Math.random() * width;
-        }
-
+        if (p.y < -10) { p.y = height + 10; p.x = Math.random() * width; }
         ctx.beginPath();
         ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
         ctx.fillStyle = `rgba(233, 18, 114, ${p.alpha})`;
@@ -64,45 +55,29 @@ const Hero: React.FC = () => {
         ctx.shadowBlur = 10;
         ctx.shadowColor = "rgba(233, 18, 114, 0.5)";
       });
-
       requestAnimationFrame(animate);
     };
 
     const handleResize = () => {
-      width = window.innerWidth;
-      height = window.innerHeight;
-      canvas.width = width;
-      canvas.height = height;
+      width = window.innerWidth; height = window.innerHeight;
+      canvas.width = width; canvas.height = height;
     };
 
     animate();
     window.addEventListener('resize', handleResize);
-
-    return () => {
-      window.removeEventListener('resize', handleResize);
-    };
+    return () => window.removeEventListener('resize', handleResize);
   }, []);
 
   return (
     <section className="relative min-h-screen w-full flex items-center justify-center overflow-hidden bg-cronos-black pt-28 pb-10">
-      <motion.div
-        style={{ scale, opacity }}
-        className="absolute inset-0 w-full h-full z-0 origin-center"
-      >
-        <video
-          autoPlay
-          loop
-          muted
-          playsInline
-          className="absolute inset-0 w-full h-full object-cover opacity-10 blur-[3px] pointer-events-none"
-        >
+      <motion.div style={{ scale, opacity }} className="absolute inset-0 w-full h-full z-0 origin-center">
+        <video autoPlay loop muted playsInline className="absolute inset-0 w-full h-full object-cover opacity-10 blur-[3px] pointer-events-none">
           <source src="https://videos.pexels.com/video-files/6756617/6756617-hd_1920_1080_25fps.mp4" type="video/mp4" />
         </video>
-
         <canvas ref={canvasRef} className="absolute inset-0 opacity-60" />
       </motion.div>
 
-            <div className="absolute inset-0 bg-gradient-to-r from-cronos-black via-cronos-black/90 to-cronos-black/40 z-10" />
+      <div className="absolute inset-0 bg-gradient-to-r from-cronos-black via-cronos-black/90 to-cronos-black/40 z-10" />
       <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-cronos-black z-10" />
 
       <HeroMarquee />
@@ -110,7 +85,7 @@ const Hero: React.FC = () => {
       <div className="relative z-20 max-w-6xl mx-auto px-4 md:px-8 w-full">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-14 items-center">
 
-          {/* Left column: headline + subheadline + social proof */}
+          {/* Left: headline + subheadline + social proof */}
           <div className="flex flex-col items-center lg:items-start text-center lg:text-left">
 
             <motion.h1
@@ -119,7 +94,8 @@ const Hero: React.FC = () => {
               transition={{ duration: 0.8, delay: 0.2 }}
               className="font-header text-3xl sm:text-4xl md:text-5xl font-bold text-cronos-white leading-[1.2] uppercase mb-4"
             >
-              <span className="text-cronos-lime inline-block">Para restaurantes e delivery's</span> que sofrem com instabilidade de faturamento e pouco fluxo de clientes.
+              <span className="text-cronos-lime inline-block">Para restaurantes e delivery's</span>{' '}
+              que sofrem com instabilidade de faturamento e pouco fluxo de clientes.
             </motion.h1>
 
             <motion.p
@@ -131,31 +107,34 @@ const Hero: React.FC = () => {
               Potencialize seu canal de vendas próprio, fidelize seus clientes e tenha previsibilidade de caixa, sem depender de sazonalidade ou marketplaces pra vender.
             </motion.p>
 
+            {/* Social proof — maior e mais destacada */}
             <motion.div
-               initial={{ opacity: 0 }}
-               animate={{ opacity: 1 }}
-               transition={{ delay: 0.6 }}
-               className="pt-4 border-t border-black/10 w-full max-w-sm flex justify-center lg:justify-start items-center gap-4"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 0.6 }}
+              className="w-full max-w-sm"
             >
-              <div className="flex -space-x-3">
-                 {[1,2,3,4].map(i => (
-                    <div key={i} className="w-8 h-8 rounded-full border border-cronos-black bg-gray-200 overflow-hidden">
-                       <img src={`https://randomuser.me/api/portraits/men/${i*10}.jpg`} alt="User" className="w-full h-full object-cover opacity-80" />
+              <div className="flex items-center justify-center lg:justify-start gap-4 p-4 rounded-xl border border-black/10 bg-cronos-charcoal">
+                <div className="flex -space-x-3 shrink-0">
+                  {[1, 2, 3, 4].map(i => (
+                    <div key={i} className="w-11 h-11 rounded-full border-2 border-cronos-black bg-gray-200 overflow-hidden">
+                      <img src={`https://randomuser.me/api/portraits/men/${i * 10}.jpg`} alt="User" className="w-full h-full object-cover" />
                     </div>
-                 ))}
-              </div>
-              <div className="flex flex-col text-left">
-                 <div className="flex items-center gap-1 text-yellow-500 text-xs">
+                  ))}
+                </div>
+                <div className="flex flex-col text-left">
+                  <div className="flex items-center gap-1 text-yellow-500 text-base mb-0.5">
                     {[1,2,3,4,5].map(i => <span key={i}>★</span>)}
-                 </div>
-                 <p className="text-cronos-white/70 text-xs md:text-sm font-sans">
-                    Junte-se a <strong className="text-cronos-white">+47 donos</strong> de delivery.
-                 </p>
+                  </div>
+                  <p className="text-cronos-white font-sans text-sm font-semibold">
+                    <span className="text-cronos-lime font-bold text-base">+47 donos</span> de delivery já aumentaram seu faturamento.
+                  </p>
+                </div>
               </div>
             </motion.div>
           </div>
 
-          {/* Right column: form */}
+          {/* Right: form */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -168,8 +147,9 @@ const Hero: React.FC = () => {
         </div>
       </div>
 
+      {/* Seta — escondida no mobile */}
       <motion.div
-        className="absolute bottom-6 left-1/2 -translate-x-1/2 z-20"
+        className="hidden sm:flex absolute bottom-6 left-1/2 -translate-x-1/2 z-20"
         animate={{ y: [0, 10, 0] }}
         transition={{ repeat: Infinity, duration: 2 }}
       >
