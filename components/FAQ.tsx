@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ChevronDown, MessageCircle } from 'lucide-react';
@@ -55,14 +54,15 @@ const FAQ: React.FC = () => {
   };
 
   return (
-    <section id="faq" className="py-16 md:py-24 bg-cronos-black relative z-20 px-4 md:px-8">
+    <section id="faq" className="py-16 md:py-24 bg-cronos-charcoal relative z-20 px-4 md:px-8">
       <div className="max-w-7xl mx-auto">
         <h2 className="text-4xl md:text-6xl font-header text-cronos-white mb-16 uppercase tracking-tighter">
           Perguntas Frequentes
         </h2>
 
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-start">
-          
+
+          {/* FAQ List */}
           <div className="lg:col-span-2 space-y-4">
             {faqs.map((faq, index) => (
               <motion.div
@@ -71,7 +71,7 @@ const FAQ: React.FC = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.05 }}
-                className="border border-black/10 bg-cronos-charcoal rounded-sm overflow-hidden"
+                className="border border-black/10 bg-cronos-black rounded-sm overflow-hidden"
               >
                 <button
                   onClick={() => toggleFAQ(index)}
@@ -108,8 +108,10 @@ const FAQ: React.FC = () => {
             ))}
           </div>
 
+          {/* Support Card */}
           <div className="lg:col-span-1 lg:sticky lg:top-24">
-            <div className="bg-cronos-charcoal border border-black/10 p-8 rounded-lg text-center relative overflow-hidden">
+            <div className="bg-cronos-black border border-black/10 p-8 rounded-lg text-center relative overflow-hidden">
+               {/* Decorative glow */}
                <div className="absolute top-0 right-0 w-32 h-32 bg-cronos-lime/5 blur-[50px] rounded-full pointer-events-none" />
 
                <div className="mb-6 flex justify-center">
@@ -125,9 +127,9 @@ const FAQ: React.FC = () => {
                  Fale diretamente com o meu suporte.
                </p>
 
-               <a 
-                 href="https://wa.me/5561985928791" 
-                 target="_blank" 
+               <a
+                 href="https://wa.me/5561985928791"
+                 target="_blank"
                  rel="noopener noreferrer"
                  className="block w-full py-4 bg-cronos-lime text-white font-bold uppercase tracking-widest hover:opacity-90 transition-opacity duration-300 interactive rounded-md"
                >
