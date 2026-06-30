@@ -29,15 +29,15 @@ const Methodology: React.FC = () => {
   ];
 
   return (
-    <section id="metodologia" className="relative py-16 md:py-32 bg-cronos-black overflow-hidden border-t border-black/5">
+    <section id="metodologia" className="relative py-16 md:py-32 bg-cronos-charcoal overflow-hidden border-t border-black/5">
       <div className="absolute inset-0 z-0">
         <img
           src="https://images.pexels.com/photos/1603650/pexels-photo-1603650.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
           alt="Roman Columns"
           className="w-full h-full object-cover opacity-10 grayscale"
         />
-        <div className="absolute inset-0 bg-gradient-to-r from-cronos-black via-cronos-black/90 to-cronos-black/40" />
-        <div className="absolute inset-0 bg-gradient-to-t from-cronos-black via-transparent to-cronos-black" />
+        <div className="absolute inset-0 bg-gradient-to-r from-cronos-charcoal via-cronos-charcoal/90 to-cronos-charcoal/40" />
+        <div className="absolute inset-0 bg-gradient-to-t from-cronos-charcoal via-transparent to-cronos-charcoal" />
       </div>
 
       <div className="max-w-7xl mx-auto px-4 relative z-10">
@@ -90,10 +90,10 @@ const Methodology: React.FC = () => {
                 className="relative pl-0 md:pl-20 group"
               >
                 <div className="absolute left-[29px] top-1/2 -translate-y-1/2 w-3 h-3 bg-cronos-black border border-cronos-orange rounded-full hidden md:block group-hover:bg-cronos-orange transition-colors duration-300 z-20" />
-                <div className="bg-cronos-charcoal border border-black/10 p-6 rounded-sm hover:border-cronos-lime/50 transition-all duration-300 hover:bg-black/5 hover:shadow-[0_10px_30px_-10px_rgba(233,18,114,0.2)] hover:-translate-y-1 interactive relative overflow-hidden">
+                <div className="bg-cronos-black border border-black/10 p-6 rounded-sm hover:border-cronos-lime/50 transition-all duration-300 hover:bg-black/5 hover:shadow-[0_10px_30px_-10px_rgba(233,18,114,0.2)] hover:-translate-y-1 interactive relative overflow-hidden">
                   <div className="absolute top-0 right-0 w-32 h-32 bg-cronos-lime/10 blur-[50px] rounded-full pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                   <div className="flex items-start gap-4 relative z-10">
-                    <div className="p-3 bg-cronos-black border border-black/10 rounded-lg text-cronos-lime group-hover:scale-110 transition-transform duration-300 shadow-sm">
+                    <div className="p-3 bg-cronos-charcoal border border-black/10 rounded-lg text-cronos-lime group-hover:scale-110 transition-transform duration-300 shadow-sm">
                       {pillar.icon}
                     </div>
                     <div>
